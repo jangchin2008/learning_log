@@ -1,0 +1,17 @@
+{% extends "learning_logs/base.html" %}
+{% block page_header %}
+	<h1>主題 </h1>
+	{% endblock page_header %}
+	{% block content%}
+	<ul>
+	{% for topic in topics %}
+	<li><h3>
+		<a href ="{% url 'learning_logs:topic' topic.id %}">{{topic}} </a></h3></li>
+
+	{% empty %}
+	<li><h3> 尚未建入任何主題 </h3> </li>
+	{% endfor %}
+</ul>
+<h3><a href= "{% url 'learning_logs:new_topic' %}" >新增一個主題 </a></h3>
+{% endblock content %}
+
